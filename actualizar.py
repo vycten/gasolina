@@ -82,6 +82,9 @@ def generar_html():
             lineas.append("ESTADO: Mercado estable. No se esperan movimientos bruscos en las bombas.")
         lineas.append("=" * 65)
 
+        # Se une fuera del f-string para evitar conflictos con versiones anteriores de Python en el servidor
+        contenido_unido = "\n".join(lineas)
+
         # Contenido HTML con diseño minimalista, texto plano centrado y limpio
         html_content = f"""<!DOCTYPE html>
 <html lang="es">
@@ -117,7 +120,7 @@ def generar_html():
     </style>
 </head>
 <body>
-    <pre>{"\n".join(lineas)}</pre>
+    <pre>{contenido_unido}</pre>
 </body>
 </html>
 """
